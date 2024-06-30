@@ -64,11 +64,12 @@
     <div class="container">
         <h2>Rabidar</h2>
         <p>Hello, <span id="userName"></span>!</p>
-        <h3>Dates of Dosage</h3>
+        <h3>Dates of Vaccines</h3>
         <p>Day 0: <span id="currentDate"></span></p>
         <p>Day 3: <span id="day3"></span></p>
         <p>Day 7: <span id="day7"></span></p>
         <p>Day 14: <span id="day14"></span></p>
+        <p>Day 28: <span id="day28"></span></p>
 
         <!-- Button to add dates to Google Calendar -->
         <button id="addToGoogleCalendar" class="btn-save">Add to Google Calendar</button>
@@ -94,14 +95,19 @@
         const day14Date = new Date(currentDate);
         day14Date.setDate(currentDate.getDate() + 14);
 
-        // Format the calculated dates in day-month-year format
+        const day28Date = new Date(currentDate);
+        day28Date.setDate(currentDate.getDate() + 28);
+
+
         const formattedDay3 = `${day3Date.getDate()}-${(day3Date.getMonth() + 1).toString().padStart(2, '0')}-${day3Date.getFullYear()}`;
         const formattedDay7 = `${day7Date.getDate()}-${(day7Date.getMonth() + 1).toString().padStart(2, '0')}-${day7Date.getFullYear()}`;
         const formattedDay14 = `${day14Date.getDate()}-${(day14Date.getMonth() + 1).toString().padStart(2, '0')}-${day14Date.getFullYear()}`;
+        const formattedDay28 = `${day28Date.getDate()}-${(day28Date.getMonth() + 1).toString().padStart(2, '0')}-${day28Date.getFullYear()}`;
 
         document.getElementById('day3').textContent = formattedDay3;
         document.getElementById('day7').textContent = formattedDay7;
         document.getElementById('day14').textContent = formattedDay14;
+        document.getElementById('day28').textContent = formattedDay28;
 
         // Retrieve and display the user's name from local storage (if available)
         const userName = localStorage.getItem('userName');
